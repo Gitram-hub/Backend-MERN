@@ -1,0 +1,20 @@
+import userModel from "../models/userModel.js";
+
+export default async (req, res, next) => {
+  try {
+    const user = await userModel.findById(req.body.id);
+    if (user.usertype !== "admin") {
+      return res.status(401).send({
+        success: false,
+        message: "Only Admin ACess ",
+      });
+    }
+    next();
+  } catch (error) {
+    res.status(500).send({
+      success: false,
+      message: "Un-AUthorized ACCESS",
+      error,
+    });
+  }
+};

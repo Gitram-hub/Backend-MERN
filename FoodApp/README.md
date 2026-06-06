@@ -71,4 +71,4 @@ curl http://localhost:3000/api/foods
 ```
 
 ---
-If you want, I can expand this README with examples for each endpoint or add a Postman collection.
+
